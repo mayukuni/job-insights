@@ -15,11 +15,11 @@ def get_unique_industries(path: str) -> List[str]:
         List of unique industries
     """
     industries = read(path)
-    unique_industries = []
+    unique = []
     for industry in industries:
-        if industry['industry'] not in unique_industries and industry['industry'] != '':
-            unique_industries.append(industry['industry'])
-    return unique_industries
+        if industry['industry'] not in unique and industry['industry'] != '':
+            unique.append(industry['industry'])
+    return unique
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
@@ -37,4 +37,8 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
     list
         List of jobs with provided industry
     """
-    raise NotImplementedError
+    filtered_industries = []
+    for job in jobs:
+        if job['industry'] == industry:
+            filtered_industries.append(job)
+    return filtered_industries
