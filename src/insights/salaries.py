@@ -71,7 +71,18 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    raise NotImplementedError
+    try:
+        min_salary, max_salary = int(job['min_salary']), int(job['max_salary'])
+        if min_salary > max_salary:
+            raise ValueError
+        if int(salary) >= min_salary and int(salary) <= max_salary:
+            return True
+        else:
+            return False
+    except Exception:
+        raise ValueError
+
+
 
 
 def filter_by_salary_range(
