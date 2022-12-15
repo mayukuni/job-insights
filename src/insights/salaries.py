@@ -20,7 +20,7 @@ def get_max_salary(path: str) -> int:
     jobs = read(path)
     max_salary = []
     for salary in jobs:
-        if salary['max_salary'] not in max_salary and salary['max_salary'].isdigit():
+        if salary['max_salary'].isdigit():
             max_salary.append(int(salary['max_salary']))
     return max(max_salary)
 
