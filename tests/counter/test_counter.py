@@ -1,5 +1,4 @@
 from src.pre_built.counter import count_ocurrences
-import pytest
 
 
 def test_counter():
